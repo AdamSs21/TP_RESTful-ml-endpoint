@@ -12,5 +12,15 @@ pipeline {
                 sh "python3 test_main.py "
             }
         }
+        stage('DockerBuild') {
+            steps {
+                sh "docker build -t mlops ."
+            }
+        }
+        stage('DockerRun') {
+            steps {
+                sh "docker run mlops"
+            }
+        }
     }
 }
