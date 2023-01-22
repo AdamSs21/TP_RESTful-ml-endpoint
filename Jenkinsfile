@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('StageBranch') {
             steps {
-                sh "git checkout -b stage"
+                sh "git checkout stage"
                 sh "git pull origin dev"
             }
         }
