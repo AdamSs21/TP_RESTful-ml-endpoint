@@ -34,9 +34,8 @@ pipeline {
                 sh "git checkout dev"
                 sh "git pull"
                 sh "git branch"
-                //sh "git pull -f"
-                //sh "git checkout dev"
-                //sh "git push -f origin master"
+                sh "git branch main"
+                sh "git push -f origin master"
             }
         }
     }
