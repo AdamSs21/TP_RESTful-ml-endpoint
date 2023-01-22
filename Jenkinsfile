@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        /* stage('Build') {
+        stage('Build') {
             steps {
                 sh "pip3 install -r requirements.txt"
             }
@@ -17,7 +17,7 @@ pipeline {
                 sh "docker build -t mlops ."
             }
         }
-        /*stage('DockerRun') {
+        stage('DockerRun') {
             steps {
                 sh "docker run mlops"
             }
@@ -27,7 +27,7 @@ pipeline {
                 sh "docker tag mlops adams21/tpmlops:mlops"
                 sh "docker push adams21/tpmlops:mlops"
             }
-        }*/
+        }
         stage('MergeToMaster') {
             steps{
                 sh "git checkout dev"
