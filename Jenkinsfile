@@ -17,11 +17,11 @@ pipeline {
                 sh "docker build -t mlops ."
             }
         }
-        stage('DockerRun') {
+        /*stage('DockerRun') {
             steps {
                 sh "docker run mlops"
             }
-        }
+        }*/
         stage('DockerPush') {
             steps{
                 sh "docker tag mlops adams21/tpmlops:mlops"
