@@ -22,5 +22,11 @@ pipeline {
                 sh "docker run mlops"
             }
         }
+        stage('DockerPush') {
+            steps{
+                sh "docker tag mlops adams21/tpmlops:mlops"
+                sh "docker push adams21/tpmlops:mlops"
+            }
+        }
     }
 }
