@@ -30,8 +30,8 @@ pipeline {
         }
         stage('MergeToMaster') {
             steps{
-                sh "git fetch"
-                sh "git checkout dev"
+                sh "git reset --hard"
+                sh "git checkout -f dev"
                 sh "git pull"
                 sh "git push -f origin master"
             }
