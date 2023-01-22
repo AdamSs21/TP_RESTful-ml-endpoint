@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('StageBranch') {
             steps {
-                sh "git checkout dev"
+                sh "git checkout -b stage"
                 sh "git pull origin dev"
-                sh "git push origin stage"
             }
         }
         stage('Build') {
@@ -37,8 +36,6 @@ pipeline {
         }
         stage('MergeToMaster') {
             steps{
-                sh "git checkout stage"
-                sh "git pull"
                 sh "git checkout master"
                 sh "git pull origin master"
                 sh "git merge stage"
