@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('StageBranch') {
+            steps {
+                sh "git checkout dev"
+                sh "git pull"
+                sh "git branch stage"
+                sh "git push origin stage"
+            }
+        }
         stage('Build') {
             steps {
                 sh "pip3 install -r requirements.txt"
@@ -30,7 +38,7 @@ pipeline {
         }
         stage('MergeToMaster') {
             steps{
-                sh "git checkout dev"
+                sh "git checkout stage"
                 sh "git push origin master"
             }
         }
