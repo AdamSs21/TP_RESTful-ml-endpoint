@@ -30,6 +30,7 @@ pipeline {
         }
         stage('MergeToMaster') {
             steps{
+                sh "git checkout master"
                 sh "git branch --set-upstream-to=master"
                 sh "git checkout dev"
                 sh "git pull"
