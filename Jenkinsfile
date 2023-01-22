@@ -32,9 +32,9 @@ pipeline {
             steps{
                 //sh "git checkout dev"
                 //sh "git pull"
-                // sh "git checkout master"
-                sh "git pull origin master"
-                sh "git merge dev"
+                //sh "git checkout master"
+                //sh "git pull origin master"
+                //sh "git merge dev"
                 sh "git push origin master"
             }
         }
