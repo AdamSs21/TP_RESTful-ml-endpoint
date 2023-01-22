@@ -32,7 +32,7 @@ pipeline {
             steps{
                 sh "git checkout dev"
                 sh "git pull"
-                sh "git push origin master"
+                sh "git push -f origin master"
             }
         }
     }
