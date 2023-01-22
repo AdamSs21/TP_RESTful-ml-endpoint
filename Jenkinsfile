@@ -34,7 +34,7 @@ pipeline {
                 sh "git checkout dev"
                 sh "git pull"
                 sh "git branch"
-                sh "git branch main"
+                sh "git branch master"
                 sh "git push -f origin master"
             }
         }
