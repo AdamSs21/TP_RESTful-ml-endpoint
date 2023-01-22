@@ -19,7 +19,6 @@ pipeline {
         }
         stage('DockerRun') {
             steps {
-                sh "docker run mlops"
             }
         }
         stage('DockerPush') {
