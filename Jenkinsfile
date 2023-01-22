@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "git checkout dev"
                 sh "git pull"
-                sh "git chekout stage"
+                sh "git checkout stage"
                 sh "git push origin stage"
             }
         }
