@@ -37,7 +37,7 @@ pipeline {
         }
         stage('MergeToMaster') {
             steps{
-                sh "git chekout stage"
+                sh "git checkout stage"
                 sh "git pull"
                 sh "git checkout master"
                 sh "git pull origin master"
