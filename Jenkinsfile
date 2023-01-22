@@ -40,7 +40,7 @@ pipeline {
             steps{
                 sh "git checkout master"
                 sh "git merge stage"
-                sh "git push master"
+                sh "git push origin master"
             }
         }
     }
