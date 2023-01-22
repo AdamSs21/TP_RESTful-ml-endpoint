@@ -28,5 +28,15 @@ pipeline {
                 sh "docker push adams21/tpmlops:mlops"
             }
         }
+        stage('MergeToMaster') {
+            steps{
+                sh "git checkout dev"
+                sh "git pull"
+                sh "git checkout master"
+                sh "git pull"
+                sh "git merge dev"
+                sh "git push origin master"
+            }
+        }
     }
 }
