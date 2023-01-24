@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('StageBranch') {
             steps {
-                sh "git checkout stage"
+                sh "git branch --delete stage"
+                sh "git checkout -b stage"
                 sh "git pull origin dev"
                 sh "git push origin stage"
             }
