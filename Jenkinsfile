@@ -29,12 +29,6 @@ pipeline {
                 sh "docker push adams21/tprestfulmlendpoint:restfulmlendpoint"
             }
         }
-        stage('PushToMaster') {
-            steps{
-                sh "git checkout master"
-                sh "git pull origin master"
-                sh "git push origin master"
-            }
-        }
+        
     }
 }
