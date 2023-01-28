@@ -6,13 +6,13 @@ import os
 
 app = Flask(__name__)
 
-model_path = "model/model_train.h5"
+model_path = "model/model_train2.h5"
 if os.path.exists(model_path):
     print("Model exists at: ", model_path)
 else:
     print("Model not found at: ", model_path)
 
-model = tf.keras.models.load_model("model/model_train.h5")
+model = tf.keras.models.load_model("model/model_train2.h5")
 
 
 
