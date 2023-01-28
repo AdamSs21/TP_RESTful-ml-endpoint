@@ -17,15 +17,9 @@ pipeline {
                 sh "docker build -t rfmlep ."
             }
         }
-        /*stage('DockerRun') {
+        stage('DockerRun') {
             steps {
-                sh "docker run mlops"
-            }
-        }*/
-        stage('DockerPush') {
-            steps{
-                sh "docker tag rfmlep adams21/tprestfulmlendpoint:rfmlep"
-                sh "docker push adams21/tprestfulmlendpoint:rfmlep"
+                sh "docker run -d rfmlep"
             }
         }
         
