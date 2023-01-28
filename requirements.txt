@@ -1,2 +1,2 @@
 flask
-no-use-pep517 tensorflow
+tensorflow
