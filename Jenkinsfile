@@ -14,7 +14,7 @@ pipeline {
         }
         stage('DockerBuild') {
             steps {
-                sh "docker build -t restfulmlendpoint ."
+                sh "docker build -t rfmlep ."
             }
         }
         /*stage('DockerRun') {
@@ -24,8 +24,8 @@ pipeline {
         }*/
         stage('DockerPush') {
             steps{
-                sh "docker tag tprestfulmlendpoint adams21/tprestfulmlendpoint:restfulmlendpoint"
-                sh "docker push adams21/tprestfulmlendpoint:restfulmlendpoint"
+                sh "docker tag rfmlep adams21/tprestfulmlendpoint:rfmlep"
+                sh "docker push adams21/tprestfulmlendpoint:rfmlep"
             }
         }
         
