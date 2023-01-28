@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "pip3 install --no-use-pep517 -r requirements.txt"
+                sh "pip install --upgrade pip"
+                sh "pip install -r requirements.txt"
             }
         }
         stage('Test') {
             steps {
                 sh "python3 test_main.py"
-
             }
         }
         stage('DockerBuild') {
