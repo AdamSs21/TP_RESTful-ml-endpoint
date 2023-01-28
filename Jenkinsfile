@@ -4,9 +4,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "pip3 install --upgrade pip"
-                sh "pip3 install --upgrade wheel"
-                sh "pip3 install --upgrade setuptools"
                 sh "pip3 install -r requirements.txt"
             }
         }
