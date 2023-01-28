@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "pip3 install -r --no-use-pep517 requirements.txt"
+                sh "pip3 install --no-use-pep517 -r requirements.txt"
             }
         }
         stage('Test') {
