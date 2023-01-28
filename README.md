@@ -2,10 +2,12 @@
 
 run the code:
 
-    pip install -r reauirements.txt
+    pip install -r requirements.txt
     python app.py
 
 the app runs on http://127.0.0.1:5000
+
+model on http://localhost:5000/classify
 
 test the app:
 

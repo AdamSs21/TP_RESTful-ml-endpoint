@@ -8,4 +8,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "app.py"]
+EXPOSE 5000
+CMD ["python", "-m", "flask", "app.py"]
