@@ -1,25 +1,20 @@
-
-"""
-simple python flask application
-"""
-
-##########################################################################
-## Imports
-##########################################################################
-
+from flask import Flask, request, jsonify
+import tensorflow as tf
+from flask import render_template
 import os
 
-from flask import Flask
-from flask import request
-from flask import render_template
-from flask import url_for
-from flask.json import jsonify
-
-##########################################################################
-## Application Setup
-##########################################################################
 
 app = Flask(__name__)
+
+model_path = "model/model_train.h5"
+if os.path.exists(model_path):
+    print("Model exists at: ", model_path)
+else:
+    print("Model not found at: ", model_path)
+
+model = tf.keras.models.load_model("model/model_train.h5")
+
+
 
 ##########################################################################
 ## Routes
@@ -29,45 +24,22 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/api/hello")
-def hello():
-    """
-    Return a hello message
-    """
-    return jsonify({"hello": "world"})
 
-@app.route("/api/hello/<name>")
-def hello_name(name):
-    """
-    Return a hello message with name
-    """
-    return jsonify({"hello": name})
+@app.route("/classify", methods=["POST"])
+def classify():
+    # Get the data from the request
+    data = request.get_json()
 
-@app.route("/api/whoami")
-def whoami():
-    """
-    Return a JSON object with the name, ip, and user agent
-    """
-    return jsonify(
-        name=request.remote_addr,
-        ip=request.remote_addr,
-        useragent=request.user_agent.string
-    )
+    # Make a prediction using the model
+    prediction = model.predict(data)
 
-@app.route("/api/whoami/<name>")
-def whoami_name(name):
-    """
-    Return a JSON object with the name, ip, and user agent
-    """
-    return jsonify(
-        name=name,
-        ip=request.remote_addr,
-        useragent=request.user_agent.string
-    )
+    # Return the prediction as a response
+    return jsonify({"prediction": prediction.tolist()})
+
 
 ##########################################################################
 ## Main
 ##########################################################################
 
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
