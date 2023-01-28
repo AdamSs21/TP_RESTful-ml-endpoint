@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "pip install --upgrade pip"
+                sh "pip install --upgrade wheel"
                 sh "pip install -r requirements.txt"
             }
         }
